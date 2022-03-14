@@ -3,4 +3,4 @@ The successful programs created by me on codechef on each day starting with the 
 
 The file names are same as problem code.
 
-Including the compettions and the wrong answers of competions also
+Including the competions and the wrong answers of competions also
