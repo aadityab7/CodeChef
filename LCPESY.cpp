@@ -11,30 +11,52 @@ int main(){
 	cin >> t;
 	while(t--){
 		string a, b;
-		cin >> a >> b;
+		getline(cin, a);
+		while(a.length() == 0)
+		    getline(cin, a);
+		    
+		getline(cin, b);
+        while(b.length() == 0)
+            getline(cin, b);
+        
+// 		vector <int> da, db;
+// 		da.assign(10,0);
+// 		db.assign(10,0);
 
-		std::vector<int> aa, aA, ba, bA;
-		aa.assign(26,0);
-		aA.assign(26,0);
-		ba.assign(26,0);
-		bA.assign(26,0);
+        int da[10] = {};
+        int db[10] = {};
+// 		std::vector<int> aa, aA, ba, bA;
+// 		aa.assign(26,0);
+// 		aA.assign(26,0);
+// 		ba.assign(26,0);
+// 		bA.assign(26,0);
+
+        int aa[26] = {}, aA[26] = {}, ba[26] = {}, bA[26] = {};
 		
 
 		for(int i = 0; i < a.size(); i++){
-			if(a[i] >= 'a' && a[i] <= 'z'){
+		    char ch = a[i];
+			if(ch >= 'a' && ch <= 'z'){
 				aa[a[i] - 97]++;
 			}
+			else if(ch >= 'A' && ch <= 'Z'){
+				aA[ch - 65]++;
+			}
 			else{
-				aA[a[i] - 65]++;
+				da[ch - 48]++;
 			}
 		}
 
 		for(int i = 0; i < b.size(); i++){
-			if(b[i] >= 'a' && b[i] <= 'z'){
-				ba[b[i] - 97]++;
+		    char ch = b[i];
+			if(ch >= 'a' && ch <= 'z'){
+				ba[ch - 97]++;
+			}
+			else if(ch >= 'A' && ch <= 'Z'){
+				bA[ch - 65]++;
 			}
 			else{
-				bA[b[i] - 65]++;
+				db[ch - 48]++;
 			}
 		}
 
@@ -52,6 +74,17 @@ int main(){
 			}
 			else{
 				ans += bA[i];
+			}
+
+			
+		}
+		
+		for(int i = 0; i < 10; i++){
+		    if(da[i] < db[i]){
+				ans += da[i];
+			}
+			else{
+				ans += db[i];
 			}
 		}
 
