@@ -9,21 +9,19 @@ int main(){
 	int t;
 	cin >> t;
 	while(t--){
-		long n;
+		int n;
 		cin >> n;
 
-		long ans = n - 1;
-
-		long count = -1;
-
-		while(n != 0){
-			n = n / 2;
-			count++;
+		long mn = LONG_MAX;
+		long num;
+		for(int i = 0; i < n; i++){
+			cin >> num;
+			if(num < mn){
+				mn = num;
+			}
 		}
 
-		ans -= count;
-
-		cout << ans << endl;
+		cout << mn * (n - 1) << endl;
 	}
 	return 0;
 }

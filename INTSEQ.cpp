@@ -9,19 +9,14 @@ int main(){
 	int t;
 	cin >> t;
 	while(t--){
-		long n;
+		int n;
 		cin >> n;
 
-		long ans = n - 1;
-
-		long count = -1;
-
-		while(n != 0){
+		long ans = 0;
+		while(n % 2 == 0){
 			n = n / 2;
-			count++;
+			ans++;
 		}
-
-		ans -= count;
 
 		cout << ans << endl;
 	}

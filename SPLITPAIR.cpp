@@ -12,33 +12,21 @@ int main(){
 		string s;
 		cin >> s;
 
-		long e = 0, o = 0;
-		for(long i = 0; i < s.size(); i++){
-			long num = s[i] - 48;
-			if(num % 2 == 0){
-				e++;
-			}
-			else{
-				o++;
+		int f = 0;
+		int c = (s[s.size() - 1] - 48) % 2;
+
+		for(int i = s.size() - 2; i >= 0; i--){
+			if((s[i] - 48) % 2 == c){
+				f = 1;
+				break;
 			}
 		}
 
-		int x = s[s.size() - 1] - 48;
-		if(x % 2 == 0){
-			if(e < 2){
-				cout << "NO" << endl;
-			}
-			else{
-				cout << "YES" << endl;
-			}
+		if(f){
+			cout << "YES" << endl;
 		}
 		else{
-			if(o < 2){
-				cout << "NO" << endl;
-			}
-			else{
-				cout << "YES" << endl;
-			}
+			cout << "NO" << endl;
 		}
 	}
 	return 0;

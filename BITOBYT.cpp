@@ -9,21 +9,25 @@ int main(){
 	int t;
 	cin >> t;
 	while(t--){
-		long n;
+		int n;
 		cin >> n;
+		int x = 0, y = 0, z = 0;
 
-		long ans = n - 1;
+		int numb = (n / 26) + 1;
 
-		long count = -1;
-
-		while(n != 0){
-			n = n / 2;
-			count++;
+		int x = n % 26;
+		if(x < 2){
+			x = numb;
+		}
+		else if(x < 10){
+			y = numb;
+		}
+		else{
+			z = numb;
 		}
 
-		ans -= count;
 
-		cout << ans << endl;
+		cout << x << ' ' << y << ' ' << z;
 	}
 	return 0;
 }
