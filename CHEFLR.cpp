@@ -6,31 +6,34 @@
 using namespace std;
 
 int main(){
-	int t;
+	long long t;
 	cin >> t;
 	while(t--){
 		string s;
 		cin >> s;
 
 		long long ans = 1;
-		long long numb = 7000000000;
-		for(int i = 0; i < s.size(); i++){
+		long long numb = pow(10,9) + 7;
+		long long level = 1;
+		for(long i = 0; i < s.size(); i++){
 			if(s[i] == 'l'){
-				if(ans % 2 == 0){
-					ans = ((ans * 2) - 1) % numb;
+				if(level % 2 == 0){
+					ans = ((ans * 2) - 1);
 				}
 				else{
-					ans = (ans * 2) % numb;
+					ans = (ans * 2);
 				}
 			}
-			else{
-				if(ans % 2 == 0){
-					ans = ((ans * 2) + 1) % numb;
+			if(s[i] == 'r'){
+				if(level % 2 == 0){
+					ans = ((ans * 2) + 1);
 				}
 				else{
-					ans = ((ans * 2) + 2) % numb;
+					ans = ((ans * 2) + 2);
 				}
 			}
+			level++;
+			ans = ans % numb;
 		}
 
 		cout << ans << endl;

@@ -9,25 +9,27 @@ int main(){
 	int t;
 	cin >> t;
 	while(t--){
-		int n;
+		long n;
 		cin >> n;
-		int x = 0, y = 0, z = 0;
+		n--;
+		long long x = 0, y = 0, z = 0;
+		
+        long w = n / 26;
+		long long numb = pow(2, w);
+		
+		int xe = n % 26;
 
-		int numb = (n / 26) + 1;
-
-		int x = n % 26;
-		if(x < 2){
+	    if(xe < 2){
 			x = numb;
 		}
-		else if(x < 10){
+		else if(xe < 10){
 			y = numb;
 		}
 		else{
-			z = numb;
+		    z = numb;
 		}
 
-
-		cout << x << ' ' << y << ' ' << z;
+		cout << x << ' ' << y << ' ' << z << endl;
 	}
 	return 0;
 }
