@@ -9,22 +9,25 @@ int main(){
 	int t;
 	cin >> t;
 	while(t--){
-		long a, b;
-		cin >> a >> b;
+		int n;
+		cin >> n;
+		int k;
+		cin >> k;
 
-		long diff = b - a;
-		if(diff < 0) diff = 0 - diff;
+		long arr[n];
 
-		long ans = 0;
-
-		for(int i = 1; i * i <= diff; i++){
-			if(diff % i == 0){
-				ans++;
-			}
-			if(diff % i == 0 && diff != (i * i)){
-			    ans++;
-			}
+		for(int i = 0; i < n; i++){
+			cin >> arr[i];
 		}
+
+		sort(arr, arr + n);
+
+		if(k >= n){
+			k = n - 1;
+		}
+		
+
+		long ans = arr[k];
 
 		cout << ans << endl;
 	}
