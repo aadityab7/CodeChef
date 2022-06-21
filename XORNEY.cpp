@@ -6,21 +6,30 @@
 using namespace std;
 
 int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
 	long long t;
 	cin >> t;
 	while(t--){
+		
 		long long l, r;
 		cin >> l >> r;
 
-		long long num;
-		if(l % 2 == 0 && r % 2 == 0) num = (r - l) / 2;
-		else num = ((r - l) / 2) + 1;
-	
-		if(num % 2 == 0){
-			cout << "Even" << endl;
+		long long diff = r - l + 1;
+		long long odds = diff / 2;
+
+		if(diff % 2 != 0 && l % 2 != 0){
+				odds++;
+		}
+		
+
+		if(odds % 2 != 0){
+			cout << "Odd" << endl;
 		}
 		else{
-			cout << "Odd" << endl;
+			cout << "Even" << endl;
 		}
 	}
 	return 0;
