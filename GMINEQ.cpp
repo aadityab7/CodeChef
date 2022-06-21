@@ -11,7 +11,8 @@ int main(){
 	while(t--){
 		int n;
 		cin >> n;
-
+        int num;
+        int ps = 0, ns = 0;
 		for(int i = 0; i < n; i++){
 			cin >> num;
 			if(num == 1){
@@ -24,12 +25,21 @@ int main(){
 
 		string ans = "Yes";
 
-		if (ps == n || ns == n){
-			ans = "No";
+		int diff = ps - ns;
+		if(diff < 0) diff = 0 - diff;
+
+		if(n % 4 == 0){
+			if(diff != 0){
+				ans = "No";
+			}
+		}
+		else if(n % 4 == 1 || n % 4 == 3){
+			if(diff != 1){
+				ans = "No";
+			}
 		}
 		else{
-			float ratio = ps / ns;
-			if(ratio > 3.0 || ratio < 0.5){
+			if(diff != 2 && diff != 0){
 				ans = "No";
 			}
 		}
