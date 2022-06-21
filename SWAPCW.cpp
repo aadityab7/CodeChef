@@ -1,6 +1,5 @@
 #include<iostream>
-// #include <bits/stdc++.h>;
-#include <string>
+#include <bits/stdc++.h>
 // #include <vector>
 // #define LONG_MAX 9223372036854775807;
 // #define INT_MAX 147483647;
@@ -15,42 +14,30 @@ int main(){
 
 		string s;
 		cin >> s;
-        
-        string ans = "";
-        
+
+
 		for(int i = 0; i < n / 2; i++){
-			if(s[i] > s[n - 1 - i]){
-				ans += s[n - 1 - i];
-			}
-			else{
-			    ans += s[i];
-			}
-		}
-		
-		for(int i = (n / 2); i < n; i++){
-		    if(s[i] > s[n - 1 - i]){
-		        ans += s[i];
-		    }
-		    else{
-		        ans += s[n - 1 -i];
-		    }
-		}
-            
-        
-		int f = 0;
-		for(int i = 0; i < n - 1; i++){
-			if(ans[i] > ans[i + 1]){
-				f = 1;
-				break;
+			if(s[i] > s[n - i - 1]){
+				char temp = s[i];
+				s[i] = s[n - 1 - i];
+				s[n - 1 - i] = temp;
 			}
 		}
 
-		if(f){
-			cout <<"NO" << endl;
+		string ans = "YES";
+		char max = s[0];
+
+		for(int i = 1; i < n; i++){
+			if(s[i] < max){
+				ans = "NO";
+				break;
+			}
+			else{
+				max = s[i];
+			}
 		}
-		else{
-			cout << "YES" << endl;
-		}
+
+		cout << ans << endl;
 	}
 	return 0;
 }

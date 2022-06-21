@@ -1,48 +1,69 @@
-#include <iostream>
-#include<bits/stdc++.h>
+#include<iostream>
+#include <bits/stdc++.h>
+// #include <vector>
+// #define LONG_MAX 9223372036854775807;
+// #define INT_MAX 147483647;
 using namespace std;
 
-int main() {
-	// your code goes here
+int main(){
 	int t;
 	cin >> t;
 	while(t--){
-	    int n;
-	    cin >> n;
-	    long arr[n];
-	    for(int i = 0; i < n; i++){
-	        cin >> arr[i];
-	    }
-	    
-	    int os = 0;
-	    for(int i = 0; i < n; i++){
-	        if(arr[i] % 2 == 0){
-	            continue;
-	        }
-	        else{
-	            os++;
-	        }
-	    }
-	    
-	    if(os % 2 == 0){
-	        sort(arr, arr + n);
-	        for(int i = n - 1; i >= 0; i--){
-	           if(arr[i] % 2 != 0){
-	               cout << arr[i] << ' ';
-	           }
-	        } 
-	        
-	        for(int i = n - 1; i >= 0; i--){
-	            if(arr[i] % 2 == 0){
-	                cout << arr[i] << ' ';
-	            }
-	        }
-	        
-	        cout << endl;
-	    }   
-	    else{
-	        cout << -1 << endl;
-	    }
+		int n;
+		cin >> n;
+
+		long odds[n] = {}, evens[n] = {};
+		int ev = 0, od = 0;
+		int j = 0, k = 0;
+        long num;
+        
+		for(int i = 0; i < n; i++){
+			cin >> num;
+			
+			if(num % 2 == 0){
+				evens[j] = num;
+				ev++;
+				j++;
+			}
+			else{
+				odds[k] = num;
+				od++;
+				k++;
+			}
+		}
+
+		int l = 0, m = 0;
+		int ans = 1;
+
+		if(od < 2){
+			ans = -1;
+		}
+		else if(od % 2 != 0){
+			if(ev > 0){
+				cout << odds[l] << ' ';
+				l++; 
+			}
+			else{
+				ans = -1;
+			}
+		}
+
+		if(ans != -1){
+			while(m < j){
+				cout << evens[m] << ' ';
+				m++;
+			}
+
+			while(l < k){
+				cout << odds[l] << ' ';
+				l++;
+			}
+		}
+		else{
+			cout << ans;
+		}
+
+		cout << endl;
 	}
 	return 0;
 }
